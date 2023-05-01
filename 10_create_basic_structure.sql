@@ -6,7 +6,7 @@
  *    ███████║╚███╔███╔╝██║   ██║   ╚██████╗██║  ██║    ███████║╚██████╗██║  ██║███████╗██║ ╚═╝ ██║██║  ██║
  *    ╚══════╝ ╚══╝╚══╝ ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝
  *
- *    TO km_languages_model database
+ *    TO km_versions_model database
  */
 
 create schema if not exists error;
@@ -19,10 +19,10 @@ create schema if not exists internal;
 
 alter default privileges
     in schema public, auth, const
-    grant select, insert, update, delete on tables to km_languages_model;
+    grant select, insert, update, delete on tables to km_versions_model;
 alter default privileges
-    in schema public, helpers, ext, unsecure grant usage, select on sequences to km_languages_model;
+    in schema public, helpers, ext, unsecure grant usage, select on sequences to km_versions_model;
 
-alter role pluto_dev set search_path to public, const, ext, helpers, unsecure, auth;
+alter role km_versions_model set search_path to public, const, ext, helpers, unsecure, auth;
 set search_path = public, const, ext, helpers, unsecure, auth;
-ALTER DATABASE km_languages_model SET search_path TO public, ext, helpers, unsecure, auth;
+ALTER DATABASE km_versions_model SET search_path TO public, ext, helpers, unsecure, auth;
