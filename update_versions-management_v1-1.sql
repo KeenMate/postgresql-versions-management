@@ -26,7 +26,8 @@ begin
 								where component = _component
 									and version = _version)
 	into __result;
-	if _throw_err then
+  
+	if _throw_err and not __result then
 		raise exception 'Version: % of component: % not found', _version, _component;
 	else
 		return __result;
